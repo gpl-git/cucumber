@@ -1,5 +1,5 @@
 infrastructure: selenoid
-hubUrl: localhost
+hubUrl: 192.168.2.180
 env: qa
 browser: chrome
 browserVersion: 79.0
