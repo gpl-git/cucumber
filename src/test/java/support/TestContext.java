@@ -151,10 +151,10 @@ public class TestContext {
                 capabilities.setVersion(getConfig().getDouble("browserVersion").toString());
                 capabilities.setCapability("enableVNC", true);
                 capabilities.setCapability("enableVideo", true);
-                capabilities.setCapability("sessionTimeout", "5m");
-                capabilities.setCapability("idleTimeout", "300");
-                capabilities.setCapability("videoScreenSize", "1920x1080");
-                capabilities.setCapability("screenResolution", "1920x1080");
+//                capabilities.setCapability("sessionTimeout", "5m");
+//                capabilities.setCapability("idleTimeout", "300");
+//                capabilities.setCapability("videoScreenSize", "1920x1080");
+//                capabilities.setCapability("screenResolution", "1920x1080");
 
                 String testName = getConfig().getString("env") + " " + getStringTestData("scenarioTag") + " \"" + getStringTestData("scenarioName") + "\"";
                 capabilities.setCapability("name", testName);
