@@ -1,21 +1,21 @@
-@market
+@market @regression
   Feature: Marketing application test suite
 
-    @market1
+    @market1 @smoke
     Scenario: Required fields end-to-end
       Given I navigate to "quote" page
       When I fill out "required" fields
       And I submit the form
       Then I verify "required" fields
 
-    @market2
+    @market2 @acceptance
     Scenario: Email field behavior
       Given I navigate to "quote" page
       When I fill out "email" field with "wrongformat"
       And I submit the form
       Then I verify error "Please enter a valid email address." displayed
 
-    @market3
+    @market3 @acceptance
     Scenario: Email field behavior
       Given I navigate to "quote" page
       When I fill out "password" field with "welcome1"
