@@ -63,4 +63,20 @@ public class MarketStepDefs {
     public void iSubmitTheForm() {
         new QuoteForm().submitForm();
     }
+
+    @When("I click on {string} button")
+    public void iClickOnButton(String buttonText) {
+        QuoteForm form = new QuoteForm();
+        form.clickButton(buttonText);
+    }
+
+    @And("I accept alert")
+    public void iAcceptAlert() {
+        new QuoteForm().acceptAlert();
+    }
+
+    @Then("I verify alert text as {string}")
+    public void iVerifyAlertTextAs(String text) {
+        assertThat(new QuoteForm().getAlertText()).containsIgnoringCase(text);
+    }
 }

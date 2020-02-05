@@ -53,4 +53,11 @@ public class Page {
         getWait().until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void acceptAlert() {
+        getDriver().switchTo().alert().accept();
+    }
+
+    public String getAlertText() {
+        return getDriver().switchTo().alert().getText();
+    }
 }

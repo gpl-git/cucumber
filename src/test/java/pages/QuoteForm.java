@@ -62,6 +62,10 @@ public class QuoteForm extends Page {
         getDriver().findElement(By.xpath("//input[@name='" + fieldName + "']")).sendKeys(value);
     }
 
+    public void clickButton(String buttonText) {
+        getDriver().findElement(By.xpath("//button[contains(text(),'" + buttonText + "')]")).click();
+    }
+
     public String getBody() {
         return getDriver().findElement(By.xpath("//body")).getText();
     }
@@ -104,14 +108,4 @@ public class QuoteForm extends Page {
         clickWithJS(submit);
 
     }
-
-
-
-
-
-
-
-
-
-
 }
