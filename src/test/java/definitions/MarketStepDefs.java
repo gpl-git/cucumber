@@ -1,5 +1,6 @@
 package definitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -29,8 +30,9 @@ public class MarketStepDefs {
         form.fillConfirmPassword("welcome");
         form.fillName("Slava", "Skryabin");
         form.acceptPrivacy();
-        form.submitForm();
     }
+
+
 
     @Then("I verify {string} fields")
     public void iVerifyFields(String scope) {
@@ -44,5 +46,21 @@ public class MarketStepDefs {
         assertThat(result.getPrivacy()).isEqualTo("true");
         assertThat(result.getPassword()).isEqualTo("[entered]");
         assertThat(result.areAllResultElementsBold()).isTrue();
+    }
+
+    @When("I fill out {string} field with {string}")
+    public void iFillOutFieldWith(String field, String value) {
+        QuoteForm form = new QuoteForm();
+        form.fillField(field, value);
+    }
+
+    @Then("I verify error {string} displayed")
+    public void iVerifyErrorDisplayed(String error) {
+        assertThat(new QuoteForm().getBody()).containsIgnoringCase(error);
+    }
+
+    @And("I submit the form")
+    public void iSubmitTheForm() {
+        new QuoteForm().submitForm();
     }
 }

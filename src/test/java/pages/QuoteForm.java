@@ -1,10 +1,12 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import support.TestContext;
 
 import static support.TestContext.getConfig;
+import static support.TestContext.getDriver;
 
 public class QuoteForm extends Page {
 
@@ -55,6 +57,14 @@ public class QuoteForm extends Page {
 
     @FindBy(id = "formSubmit")
     private WebElement submit;
+
+    public void fillField(String fieldName, String value) {
+        getDriver().findElement(By.xpath("//input[@name='" + fieldName + "']")).sendKeys(value);
+    }
+
+    public String getBody() {
+        return getDriver().findElement(By.xpath("//body")).getText();
+    }
 
     public void fillUsername(String text) {
         username.sendKeys(text);
