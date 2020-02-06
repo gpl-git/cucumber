@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import support.TestContext;
 
 import static support.TestContext.getConfig;
@@ -58,6 +59,10 @@ public class QuoteForm extends Page {
     @FindBy(id = "formSubmit")
     private WebElement submit;
 
+    @FindBy(xpath = "//select[@name='countryOfOrigin']")
+    private WebElement countryOfOrigin;
+
+
     public void fillField(String fieldName, String value) {
         getDriver().findElement(By.xpath("//input[@name='" + fieldName + "']")).sendKeys(value);
     }
@@ -107,5 +112,9 @@ public class QuoteForm extends Page {
     public void submitForm() {
         clickWithJS(submit);
 
+    }
+    public void selectCountry(String text){
+        countryOfOrigin.click();
+        new Select(countryOfOrigin).selectByVisibleText(text);
     }
 }

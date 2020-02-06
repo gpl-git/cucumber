@@ -37,3 +37,13 @@
       When I click on "3rd party agreement" button
       Then I verify alert text as "Do you accept third party agreement?"
       And I accept alert
+
+    @market6 @regression
+    Scenario: Optional field - country of origin
+      Given I navigate to "quote" page
+      When I fill out "required" fields
+      When I click on "3rd party agreement" button
+      And I accept alert
+      And I fill out optional fields
+      And I submit the form
+      Then I verify "required" fields

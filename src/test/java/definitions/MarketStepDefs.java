@@ -79,4 +79,11 @@ public class MarketStepDefs {
     public void iVerifyAlertTextAs(String text) {
         assertThat(new QuoteForm().getAlertText()).containsIgnoringCase(text);
     }
+
+    @And ("I fill out optional fields")
+    public void iFillOutOptionalFields() throws Throwable{
+        QuoteForm form =new QuoteForm();
+        form.selectCountry("Canada");
+
+    }
 }
