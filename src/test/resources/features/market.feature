@@ -47,3 +47,13 @@
       And I fill out optional fields
       And I submit the form
       Then I verify "required" fields
+
+    @market7 @regression
+    Scenario: Optional field - date of birth
+      Given I navigate to "quote" page
+      When I fill out "required" fields
+      When I click on "3rd party agreement" button
+      And I accept alert
+      And I fill out optional fields
+      And I submit the form
+      Then I verify "required" fields

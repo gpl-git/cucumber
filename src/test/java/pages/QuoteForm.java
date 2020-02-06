@@ -62,6 +62,9 @@ public class QuoteForm extends Page {
     @FindBy(xpath = "//select[@name='countryOfOrigin']")
     private WebElement countryOfOrigin;
 
+    @FindBy(id = "dateOfBirth")
+    private WebElement dateOfBirth;
+
 
     public void fillField(String fieldName, String value) {
         getDriver().findElement(By.xpath("//input[@name='" + fieldName + "']")).sendKeys(value);
@@ -116,5 +119,8 @@ public class QuoteForm extends Page {
     public void selectCountry(String text){
         countryOfOrigin.click();
         new Select(countryOfOrigin).selectByVisibleText(text);
+    }
+    public void fillDateOfBirth(String text){
+        dateOfBirth.sendKeys(text);
     }
 }

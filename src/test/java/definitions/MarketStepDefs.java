@@ -84,6 +84,6 @@ public class MarketStepDefs {
     public void iFillOutOptionalFields() throws Throwable{
         QuoteForm form =new QuoteForm();
         form.selectCountry("Canada");
-
+        form.fillDateOfBirth("04/01/2000");
     }
 }
