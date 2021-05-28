@@ -86,4 +86,12 @@ public class MarketStepDefs {
         form.selectCountry("Canada");
 
     }
+
+
+
+    @When("I type {string}")
+    public void iType(String email) {
+        QuoteForm form = new QuoteForm();
+        form.fillEmail(email);
+    }
 }

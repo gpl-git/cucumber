@@ -47,3 +47,19 @@
       And I fill out optional fields
       And I submit the form
       Then I verify "required" fields
+
+    @market @outline
+    Scenario Outline: Validating Email Error Messages
+      Given I navigate to "quote" page
+      When I type <email>
+      And I submit the form
+      Then I verify error <errorMessage> displayed
+      Examples:
+       | email              | errorMessage                          |
+       | "incorrect email"  | "Please enter a valid email address." |
+       | "incorrect@ email"   | "Please enter a valid email address." |
+       | "incorrect email.com" | "Please enter a valid email address." |
+       | "incorrect@ email"   | "Please enter a valid email address." |
+       | "incorrect email.com" | "Please enter a valid email address." |
+       | "incorrect@emailcom." | "Please enter a valid email address." |
+       | " "                    | "This field is required." |
